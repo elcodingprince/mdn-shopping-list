@@ -33,25 +33,28 @@
     <script>
       const ul = document.querySelector("ul");
       const input = document.querySelector("input");
-      const btn = document.querySelector("button");
+      const addBtn = document.querySelector("button");
 
-      btn.addEventListener("click", () => {
+      addBtn.onclick = () => {
         const inputValue = input.value;
-
         input.value = '';
-      });
-      
-      const listItems = document.createElement("li");
-      const span = document.createElement("span");
-      const deleteBtn = document.createElement("button");
+        
+        const listItems = document.createElement("li");
+        const span = document.createElement("span");
+        const deleteBtn = document.createElement("button");
 
-      ul.appendChild(span);
-      ul.appendChild(deleteBtn);
+        listItems.appendChild(span);
+        listItems.appendChild(deleteBtn);
 
-      span.textContent = inputValue;
-      deleteBtn.textContent = "Delete";
+        span.textContent = inputValue;
+        deleteBtn.textContent = "Delete";
 
-      ul.appendChild(listItems);
+        ul.appendChild(listItems);
+
+        deleteBtn.addEventListener("click", () => {
+          ul.removeChild(listItems);
+          });
+        };
     </script>
   </body>
 </html>
